@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#66745c">
+<meta name="description" content="Bazar on-line da Fraternidade Espírita Nosso Lar. Garimpe, encontre e faça o bem.">
+<title>Bazar On-line | Fraternidade Espírita Nosso Lar</title>
+<style>
+:root{--green:#66745c;--dark:#43513d;--cream:#f7f4ed;--sand:#e9e2d5;--ink:#34382f;--muted:#77796f;--white:#fff;--accent:#b77c58}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+a{color:inherit}.topbar{background:var(--dark);color:#fff;text-align:center;padding:9px 16px;font-size:13px;letter-spacing:.03em}
+header{background:rgba(247,244,237,.96);border-bottom:1px solid var(--sand);position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}
+.nav{max-width:1120px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.mark{width:42px;height:42px;border-radius:50%;background:var(--green);color:white;display:grid;place-items:center;font-family:Georgia,serif;font-size:22px}
+.brand strong{display:block;font-family:Georgia,serif;font-size:18px;line-height:1.1}.brand small{color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+nav{display:flex;gap:24px;font-size:14px}nav a{text-decoration:none}
+.hero{max-width:1120px;margin:auto;padding:68px 22px 58px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:42px}
+.eyebrow{color:var(--accent);text-transform:uppercase;font-size:12px;font-weight:bold;letter-spacing:.16em}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:normal}h1{font-size:clamp(38px,5vw,62px);line-height:1.04;margin:14px 0 18px;color:var(--dark)}
+.hero p{font-size:17px;color:#65685e;max-width:480px;margin:0 0 26px}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:5px;background:var(--green);color:#fff;text-decoration:none;font-weight:bold;font-size:14px;border:0;cursor:pointer}
+.button:hover,.reserve:hover{background:var(--dark)}.hero-art{min-height:330px;border-radius:48% 48% 8px 8px;background:linear-gradient(145deg,#e7ddca,#d3d8c9);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid rgba(67,81,61,.25);border-radius:50%}.hero-art:before{width:250px;height:250px}.hero-art:after{width:185px;height:185px}
+.hero-quote{z-index:1;text-align:center;color:var(--dark);font-family:Georgia,serif;font-size:27px;max-width:260px}
+.section{max-width:1120px;margin:auto;padding:46px 22px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}
+h2{font-size:35px;color:var(--dark);margin:5px 0}.section-head p{color:var(--muted);margin:0}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 24px}.filter{border:1px solid #d9d3c7;background:transparent;padding:8px 14px;border-radius:30px;color:#62665b;cursor:pointer;font-size:13px}.filter.active,.filter:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.product{background:#fff;border:1px solid #ebe6dc;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.photo{height:220px;background:#eeeae1;display:grid;place-items:center;color:#999;font-size:13px;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}
+.product-info{padding:17px;display:flex;flex-direction:column;flex:1}.category{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--accent);font-weight:bold}
+.product h3{font-size:21px;margin:6px 0}.description{color:var(--muted);font-size:13px;margin:0 0 14px;flex:1}.price{font-size:20px;color:var(--dark);font-weight:bold;margin-bottom:13px}
+.reserve{display:block;text-align:center;text-decoration:none;background:var(--green);color:white;padding:11px;border-radius:4px;font-size:13px;font-weight:bold}
+.empty{grid-column:1/-1;padding:44px 20px;text-align:center;border:1px dashed #c9c2b5;border-radius:8px;color:var(--muted);background:rgba(255,255,255,.45)}
+.notice{background:#ede8dc;padding:34px 22px}.notice-inner{max-width:900px;margin:auto;text-align:center}.notice h2{font-size:29px}.notice p{max-width:700px;margin:10px auto;color:#62665b}.notice strong{color:#8b5639}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}.step{background:rgba(255,255,255,.6);padding:19px;border-radius:6px}.step b{display:block;color:var(--green);font-family:Georgia,serif;font-size:25px;margin-bottom:5px}
+.contact{max-width:1120px;margin:auto;padding:55px 22px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.contact-card{background:var(--dark);color:#fff;padding:32px;border-radius:8px}.contact-card h2{color:white}.contact-card p{color:#e4e6df}.address{font-size:15px;margin:18px 0}
+footer{background:#343d31;color:#e8e9e3;text-align:center;padding:22px;font-size:12px}footer span{color:#c7b79e}
+.admin-link{font-size:12px;color:#e8e9e3;opacity:.8}.admin-link:hover{opacity:1}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:30;padding:18px;overflow:auto}.modal.open{display:block}.panel{max-width:650px;margin:4vh auto;background:#fff;border-radius:10px;padding:24px;box-shadow:0 15px 50px #0003}
+.panel h2{font-size:27px}.field{display:grid;gap:5px;margin:12px 0}.field label{font-size:13px;font-weight:bold}.field input,.field textarea,.field select{width:100%;padding:11px;border:1px solid #d8d5cc;border-radius:5px;font:inherit;background:#fff}.field textarea{min-height:85px}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.secondary{background:#eee;color:#333}.danger{background:#a74337}.admin-list{border-top:1px solid #eee;margin-top:20px}.admin-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #eee}.admin-item img{width:55px;height:55px;object-fit:cover;border-radius:5px;background:#eee}.admin-item .grow{flex:1;min-width:0}.admin-item small{display:block;color:var(--muted)}.tiny{padding:7px 10px;font-size:12px}
+.status{font-size:13px;color:var(--muted);margin:8px 0}.hidden{display:none!important}
+@media(max-width:760px){.nav{padding:13px 17px}nav{gap:12px;font-size:12px}.brand strong{font-size:15px}.brand small{font-size:9px}.hero{grid-template-columns:1fr;padding-top:45px;gap:25px}.hero-art{min-height:230px}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.photo{height:170px}.product-info{padding:13px}.section-head{display:block}.section-head p{margin-top:7px}.contact{grid-template-columns:1fr;gap:20px}.how{grid-template-columns:1fr}.section{padding:38px 17px}}
+@media(max-width:420px){nav{gap:9px}.grid{grid-template-columns:1fr}.photo{height:230px}.hero h1{font-size:42px}.panel{padding:18px}}
+</style>
+</head>
+<body>
+<div class="topbar">UM BAZAR COM PROPÓSITO — SUA COMPRA TAMBÉM FAZ O BEM</div>
+<header><div class="nav">
+<a class="brand" href="#inicio"><span class="mark">N</span><span><strong>Bazar Nosso Lar</strong><small>Fraternidade Espírita</small></span></a>
+<nav><a href="#produtos">Produtos</a><a href="#reservas">Como reservar</a><a href="#contato">Contato</a></nav>
+</div></header>
+<main>
+<section class="hero" id="inicio"><div><div class="eyebrow">Bazar on-line · Nosso Lar</div><h1>Garimpe, encontre e faça o bem.</h1>
+<p>Boas oportunidades, itens especiais e a alegria de contribuir com uma iniciativa solidária. Conheça nossos produtos disponíveis.</p>
+<a class="button" href="#produtos">VER PRODUTOS</a></div>
+<div class="hero-art"><div class="hero-quote">Cada escolha pode fazer a diferença.</div></div></section>
+<section class="section" id="produtos"><div class="section-head"><div><div class="eyebrow">Encontre seu próximo achado</div><h2>Produtos disponíveis</h2></div><p>Novidades são adicionadas por aqui.</p></div>
+<div class="filters" id="filters"></div><div class="grid" id="productGrid"><div class="empty">Carregando produtos...</div></div></section>
+<section class="notice" id="reservas"><div class="notice-inner"><div class="eyebrow">Importante</div><h2>Como funciona a reserva?</h2>
+<p>Gostou de algum item? Fale conosco pelo WhatsApp para confirmar a disponibilidade e receber as orientações de pagamento.</p>
+<p><strong>A reserva só é efetivada após a confirmação do pagamento.</strong> O envio de uma mensagem ou pedido de reserva não garante a separação do produto.</p>
+<div class="how"><div class="step"><b>01</b>Escolha o produto e clique em “Reservar pelo WhatsApp”.</div><div class="step"><b>02</b>Converse com a equipe e realize o pagamento conforme as orientações.</div><div class="step"><b>03</b>Após a confirmação do pagamento, sua reserva estará efetivada.</div></div></div></section>
+<section class="contact" id="contato"><div><div class="eyebrow">Estamos à disposição</div><h2>Fale com o Bazar</h2><p>Para dúvidas, informações ou pedidos de reserva, entre em contato com nossa equipe.</p><a class="button" id="generalWhats" href="#" target="_blank" rel="noopener">CONVERSAR PELO WHATSAPP</a></div>
+<div class="contact-card"><div class="eyebrow" style="color:#d7b18f">Visite-nos</div><h2>Fraternidade Espírita Nosso Lar</h2><p class="address">Rua Alga Verde, 194<br>Jardim Guanabara</p><p>Será um prazer receber você!</p></div></section>
+</main>
+<footer>© <span id="year"></span> Bazar On-line · Fraternidade Espírita Nosso Lar<br><span>Garimpe, encontre e faça o bem.</span><br><a class="admin-link" href="#" id="openAdmin">Acesso da equipe</a></footer>
+
+<div class="modal" id="adminModal" aria-modal="true" role="dialog">
+<div class="panel">
+<div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><div><div class="eyebrow">Área restrita</div><h2>Painel do bazar</h2></div><button class="button secondary tiny" id="closeAdmin">Fechar</button></div>
+<div id="loginArea">
+<p>Entre com o e-mail e a senha cadastrados pela equipe.</p>
+<div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="username"></div>
+<div class="field"><label for="password">Senha</label><input id="password" type="password" autocomplete="current-password"></div>
+<div class="actions"><button class="button" id="loginBtn">Entrar</button></div>
+<p class="status" id="loginStatus"></p>
+</div>
+<div id="manageArea" class="hidden">
+<p class="status" id="adminStatus">Você está no painel administrativo.</p>
+<div class="actions"><button class="button" id="newProductBtn">+ Cadastrar produto</button><button class="button secondary" id="logoutBtn">Sair</button></div>
+<form id="productForm" class="hidden">
+<input type="hidden" id="productId">
+<div class="field"><label for="pname">Nome do produto *</label><input id="pname" required maxlength="100"></div>
+<div class="field"><label for="pcategory">Categoria *</label><select id="pcategory" required><option>Roupas</option><option>Calçados</option><option>Casa e decoração</option><option>Livros</option><option>Acessórios</option><option>Eletrônicos</option><option>Outros</option></select></div>
+<div class="field"><label for="pdescription">Descrição</label><textarea id="pdescription" maxlength="500"></textarea></div>
+<div class="field"><label for="pprice">Preço (ex.: R$ 25,00) *</label><input id="pprice" required maxlength="30"></div>
+<div class="field"><label for="pimage">Foto do produto</label><input id="pimage" type="file" accept="image/*"><small>Envie uma foto em JPG, PNG ou WEBP. Se não escolher outra foto ao editar, a atual será mantida.</small></div>
+<div class="field"><label><input type="checkbox" id="pavailable" checked style="width:auto"> Produto disponível na vitrine</label></div>
+<div class="actions"><button class="button" type="submit" id="saveBtn">Salvar produto</button><button class="button secondary" type="button" id="cancelForm">Cancelar</button></div>
+<p class="status" id="formStatus"></p>
+</form>
+<div class="admin-list" id="adminList"></div>
+</div>
+<p class="status" id="configWarning"></p>
+</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// CONFIGURAÇÃO INICIAL: preencher uma única vez seguindo o guia LEIA-ME.
+const SUPABASE_URL = "COLE_A_URL_DO_SEU_PROJETO";
+const SUPABASE_ANON_KEY = "COLE_SUA_CHAVE_PUBLICA_ANON";
+const WHATSAPP = "5531997626037";
+const BUCKET = "fotos-produtos";
+
+const configured = SUPABASE_URL.startsWith("https://") && !SUPABASE_ANON_KEY.startsWith("COLE_");
+const db = configured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+const grid = document.getElementById("productGrid");
+const filters = document.getElementById("filters");
+const modal = document.getElementById("adminModal");
+let products = [], activeCategory = "Todos", currentImage = "";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("generalWhats").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Gostaria de informações sobre o Bazar On-line da Fraternidade Espírita Nosso Lar.")}`;
+if (!configured) document.getElementById("configWarning").textContent = "O site ainda precisa ser conectado ao banco de dados. Siga o guia LEIA-ME antes de publicar.";
+
+function reserveMessage(p){return encodeURIComponent(`Olá! Tenho interesse em reservar o item "${p.name}" do Bazar On-line da Fraternidade Espírita Nosso Lar. Ele ainda está disponível?`)}
+function render(){
+ const cats=["Todos",...new Set(products.filter(p=>p.available).map(p=>p.category))];
+ filters.innerHTML=cats.map(c=>`<button class="filter ${c===activeCategory?'active':''}" data-cat="${safe(c)}">${safe(c)}</button>`).join("");
+ filters.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{activeCategory=b.dataset.cat;render()}));
+ const list=products.filter(p=>p.available && (activeCategory==="Todos"||p.category===activeCategory));
+ if(!list.length){grid.innerHTML='<div class="empty"><strong>Estamos preparando nosso catálogo!</strong><br>Em breve, novos produtos estarão disponíveis por aqui.<br>Se quiser saber sobre os itens do bazar, fale com a gente pelo WhatsApp.</div>';return}
+ grid.innerHTML=list.map(p=>`<article class="product"><div class="photo">${p.image_url?`<img src="${attr(p.image_url)}" alt="${attr(p.name)}" loading="lazy">`:"Foto do produto"}</div><div class="product-info"><div class="category">${safe(p.category)}</div><h3>${safe(p.name)}</h3><p class="description">${safe(p.description||"")}</p><div class="price">${safe(p.price)}</div><a class="reserve" href="https://wa.me/${WHATSAPP}?text=${reserveMessage(p)}" target="_blank" rel="noopener">RESERVAR PELO WHATSAPP</a></div></article>`).join("");
+}
+function safe(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function attr(s=""){return safe(s)}
+async function loadProducts(){
+ if(!db){render();return}
+ const {data,error}=await db.from("products").select("*").order("created_at",{ascending:false});
+ if(error){grid.innerHTML='<div class="empty">Não foi possível carregar os produtos agora. Tente novamente mais tarde.</div>';console.error(error);return}
+ products=data||[];render();
+}
+document.getElementById("openAdmin").onclick=e=>{e.preventDefault();modal.classList.add("open");document.getElementById("configWarning").textContent=configured?"":"O painel ficará disponível depois da configuração inicial descrita no guia LEIA-ME.";};
+document.getElementById("closeAdmin").onclick=()=>modal.classList.remove("open");
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("open")});
+function showLoggedIn(user){document.getElementById("loginArea").classList.add("hidden");document.getElementById("manageArea").classList.remove("hidden");document.getElementById("adminStatus").textContent=`Conectado como ${user.email}`;loadAdminList()}
+function showLoggedOut(){document.getElementById("loginArea").classList.remove("hidden");document.getElementById("manageArea").classList.add("hidden");}
+document.getElementById("loginBtn").onclick=async()=>{
+ const status=document.getElementById("loginStatus"); if(!db){status.textContent="Configure o Supabase primeiro, seguindo o guia.";return}
+ status.textContent="Verificando acesso...";
+ const {data,error}=await db.auth.signInWithPassword({email:document.getElementById("email").value,password:document.getElementById("password").value});
+ if(error){status.textContent="Não foi possível entrar. Confira e-mail e senha.";return}
+ const {data:admin}=await db.from("admins").select("user_id").eq("user_id",data.user.id).maybeSingle();
+ if(!admin){await db.auth.signOut();status.textContent="Este usuário não tem permissão de administrador.";return}
+ showLoggedIn(data.user);
+};
+document.getElementById("logoutBtn").onclick=async()=>{await db.auth.signOut();showLoggedOut();hideForm()};
+document.getElementById("newProductBtn").onclick=()=>openForm();
+document.getElementById("cancelForm").onclick=hideForm;
+function openForm(p=null){
+ const f=document.getElementById("productForm");f.classList.remove("hidden");
+ document.getElementById("productId").value=p?.id||"";
+ document.getElementById("pname").value=p?.name||"";
+ document.getElementById("pcategory").value=p?.category||"Roupas";
+ document.getElementById("pdescription").value=p?.description||"";
+ document.getElementById("pprice").value=p?.price||"";
+ document.getElementById("pavailable").checked=p?.available??true;
+ document.getElementById("pimage").value="";currentImage=p?.image_url||"";
+ document.getElementById("formStatus").textContent=p?.image_url?"A foto atual será mantida se você não selecionar outra.":"";
+ f.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function hideForm(){document.getElementById("productForm").classList.add("hidden");document.getElementById("productForm").reset();currentImage=""}
+async function loadAdminList(){
+ const {data,error}=await db.from("products").select("*").order("created_at",{ascending:false});
+ const list=document.getElementById("adminList");if(error){list.textContent="Erro ao carregar produtos.";return}
+ products=data||[];
+ list.innerHTML=products.length?products.map(p=>`<div class="admin-item"><img src="${attr(p.image_url||"")}" alt=""><div class="grow"><strong>${safe(p.name)}</strong><small>${safe(p.price)} · ${p.available?"Disponível":"Oculto/vendido"}</small></div><button class="button secondary tiny" data-edit="${p.id}">Editar</button><button class="button danger tiny" data-delete="${p.id}">Excluir</button></div>`).join(""):'<p class="status">Nenhum produto cadastrado ainda.</p>';
+ list.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>openForm(products.find(p=>p.id===b.dataset.edit)));
+ list.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>deleteProduct(b.dataset.delete));
+}
+async function deleteProduct(id){
+ if(!confirm("Tem certeza de que deseja excluir este produto?"))return;
+ const {error}=await db.from("products").delete().eq("id",id);
+ if(error){alert("Não foi possível excluir. Verifique sua conexão e permissões.");return}
+ await loadAdminList();await loadProducts();
+}
+document.getElementById("productForm").onsubmit=async e=>{
+ e.preventDefault();const status=document.getElementById("formStatus"),save=document.getElementById("saveBtn");
+ save.disabled=true;status.textContent="Salvando produto...";
+ let image_url=currentImage;const file=document.getElementById("pimage").files[0];
+ try{
+  if(file){
+   if(!file.type.startsWith("image/"))throw new Error("Selecione um arquivo de imagem.");
+   if(file.size>5*1024*1024)throw new Error("A imagem deve ter até 5 MB.");
+   const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");
+   const path=`${crypto.randomUUID()}.${ext}`;
+   const {error:upErr}=await db.storage.from(BUCKET).upload(path,file,{upsert:false,contentType:file.type});
+   if(upErr)throw upErr;
+   image_url=db.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+  }
+  const payload={name:document.getElementById("pname").value.trim(),category:document.getElementById("pcategory").value,description:document.getElementById("pdescription").value.trim(),price:document.getElementById("pprice").value.trim(),image_url,available:document.getElementById("pavailable").checked};
+  const id=document.getElementById("productId").value;
+  const result=id?await db.from("products").update(payload).eq("id",id):await db.from("products").insert(payload);
+  if(result.error)throw result.error;
+  status.textContent="Produto salvo com sucesso!";hideForm();await loadAdminList();await loadProducts();
+ }catch(err){console.error(err);status.textContent=err.message||"Erro ao salvar. Confira a configuração e tente novamente."}
+ finally{save.disabled=false}
+};
+if(db){db.auth.getSession().then(async({data})=>{if(data.session){const {data:admin}=await db.from("admins").select("user_id").eq("user_id",data.session.user.id).maybeSingle();if(admin)showLoggedIn(data.session.user)}});loadProducts()}
+else render();
+</script>
+</body></html>

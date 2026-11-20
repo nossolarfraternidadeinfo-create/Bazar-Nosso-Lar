@@ -1,0 +1,63 @@
+# Bazar Nosso Lar — instalação gratuita
+
+Este pacote contém a vitrine e o painel administrativo. Depois da configuração inicial, a equipe cadastra e atualiza os produtos pelo painel, sem editar código.
+
+## O que será usado
+- GitHub Pages: hospedagem estática gratuita.
+- Supabase: banco de dados, autenticação e armazenamento das fotos no plano gratuito.
+- WhatsApp informado: (31) 99762-6037.
+
+**Importante:** os serviços gratuitos têm limites e regras que podem mudar. Não há mensalidade no plano Free, mas não é possível prometer disponibilidade ilimitada. Proteja a senha de administrador. Nunca publique a chave `service_role` do Supabase.
+
+## Etapa 1 — Criar o projeto Supabase
+1. Acesse https://supabase.com/ e crie uma conta gratuita.
+2. Crie um projeto, escolha uma senha forte para o banco e guarde-a em local seguro.
+3. Aguarde o projeto ficar pronto.
+4. Entre em **SQL Editor** > **New query**.
+5. Abra o arquivo `supabase_setup.sql`, copie todo o conteúdo e execute no SQL Editor.
+
+## Etapa 2 — Criar o acesso administrativo
+1. No Supabase, abra **Authentication** > **Users** > **Add user**.
+2. Cadastre o e-mail e uma senha para a pessoa responsável pelo bazar. Se aparecer a opção, confirme/crie o usuário como confirmado.
+3. Copie o **User UID** (UUID) desse usuário.
+4. No **SQL Editor**, execute este comando, substituindo o texto pelo UUID copiado:
+
+   insert into public.admins (user_id) values ('COLE-AQUI-O-UUID-DO-USUARIO');
+
+5. Para dar acesso a outra pessoa, crie outro usuário e repita o comando com o UUID dela.
+
+## Etapa 3 — Conectar o site ao Supabase (uma única vez)
+1. No Supabase, abra **Project Settings** > **API** (ou **Data API / API Keys**, conforme a interface).
+2. Copie a **Project URL** e a chave pública **anon** ou **publishable**. Nunca use `service_role` ou `secret`.
+3. Abra `index.html` em um editor de texto.
+4. Localize estas duas linhas perto do final do arquivo:
+
+   const SUPABASE_URL = "COLE_A_URL_DO_SEU_PROJETO";
+   const SUPABASE_ANON_KEY = "COLE_SUA_CHAVE_PUBLICA_ANON";
+
+5. Substitua os textos entre aspas pelos valores copiados do seu projeto Supabase. Salve o arquivo.
+
+Esta é a única etapa que exige mexer no código. Depois disso, cadastrar produtos é feito pelo painel.
+
+## Etapa 4 — Publicar gratuitamente no GitHub Pages
+1. Crie uma conta em https://github.com/ se ainda não tiver.
+2. Crie um repositório novo, por exemplo `bazar-nosso-lar`. Para o Pages gratuito, deixe-o **Public**.
+3. Envie o arquivo `index.html` para a raiz do repositório (Add file > Upload files > Commit changes).
+4. Abra **Settings** > **Pages**.
+5. Em **Build and deployment**, escolha **Deploy from a branch**; branch `main`, pasta `/ (root)`, e salve.
+6. Aguarde a publicação. O GitHub mostrará o endereço do site em Settings > Pages.
+
+## Etapa 5 — Cadastrar os produtos
+1. Abra o endereço público do bazar.
+2. Vá até o rodapé e clique em **Acesso da equipe**.
+3. Entre com o e-mail e a senha criados na Etapa 2.
+4. Clique em **Cadastrar produto**, preencha os campos, selecione uma foto e salve.
+5. Para atualizar um item, clique em **Editar**. Para ocultar um item sem apagá-lo, edite e desmarque “Produto disponível na vitrine”. Para excluir definitivamente, use **Excluir**.
+
+## Observações importantes
+- O site só exibirá produtos marcados como disponíveis.
+- O pedido de reserva abre uma conversa no WhatsApp. A equipe deve confirmar disponibilidade e pagamento; a reserva só se efetiva após a confirmação do pagamento.
+- Imagens têm limite de 5 MB por arquivo.
+- O bucket de fotos é público para permitir que os visitantes vejam as imagens. Não envie fotos com dados pessoais ou informações privadas.
+- Faça backup periódico do catálogo. Não compartilhe credenciais administrativas.
+- GitHub Pages é hospedagem estática: o cadastro e as alterações são salvos no Supabase, não no arquivo HTML.
